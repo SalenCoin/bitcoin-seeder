@@ -674,8 +674,9 @@ bool CNetAddr::IsI2P() const
 bool CNetAddr::IsLocal() const
 {
     // IPv4 loopback
-   if (IsIPv4() && (GetByte(3) == 127 || GetByte(3) == 0))
-       return true;
+  //Commenting out as OpenVZ always sets main eth adaptor as 127.0.0.1
+    //if (IsIPv4() && (GetByte(3) == 127 || GetByte(3) == 0))
+    //    return true;
 
    // IPv6 loopback (::1/128)
    static const unsigned char pchLocal[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
